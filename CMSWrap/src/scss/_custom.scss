@@ -1,0 +1,135 @@
+
+// Here you can add other styles
+h6, h5, h4,h3, h2, h1
+{
+margin-bottom: 0px !important;
+}
+.bg-green{
+    background-color: $oc-green !important;   
+}
+.fill-green{
+    border-color: $oc-green;
+}
+.text-white
+{
+    color: $white !important;
+    .text-medium-emphasis
+    {
+        color: $white !important;  
+    }
+}
+.text-danger{
+    color: rgba(255, 166, 0, 1) !important;
+    font-size:24px;
+}
+.bg-danger,
+.btn-danger{
+    background-color: $oc-dorange !important;
+ 
+}
+.text-warning{
+    color: rgba(230, 92, 65, 1) !important;
+    fill: rgba(230, 92, 65, 1) !important;
+    
+    font-size:24px;
+}
+.bg-warning{
+    background-color: rgba(230, 92, 65, 1) !important;
+ 
+}
+.text-info{
+    color: rgba(166, 45, 86, 1) !important;
+    font-size:24px;
+}
+.bg-info,
+.btn-info {
+    background-color: $oc-dpurple !important;
+    border: 0px solid transparent;
+    color: $white;
+
+}
+.text-success{
+    color: $oc-purple !important;
+    font-size:24px;
+}
+.bg-success,
+.btn-success {
+    background-color: $oc-purple !important;
+    border: 0px solid transparent;
+}
+
+.bg-active,
+.btn-active {
+    background-color: #41e6af !important;
+    border: 0px solid transparent;
+}
+.progress-group-header,
+.text-value
+{
+font-size: 24px !important;
+}
+.text-muted{
+    font-size: 22px !important;
+}
+.bg-lighpurp
+{
+    background-color: $lpurple !important;
+    color: $white;
+}
+.bg-inactive{
+    background-color: $oc-purp;
+}
+.text-purple{
+    color: $oc-purple;
+}
+.btn{
+    text-decoration: none;
+}
+
+.deviceView{
+    background-color: $oc-purple !important;
+}
+
+.statusIcon
+{
+  svg{
+    margin-bottom:4px;
+    margin-right: 6px;
+  } 
+}
+.text-green
+{
+    color: $oc-green;
+}
+.text-mute
+{
+    color: $clearwhite;
+}
+.dropdown-menu
+{
+    background-color: $oc-purple;
+
+        .dropdown-item{
+            background-color: transparent !important;
+            color: $white;
+            
+            &:hover {
+                cursor: pointer;
+                background-color: $lpurple !important;
+                color: $white;
+            }
+        }   
+
+}
+
+
+
+.modal-header
+{
+    border-bottom: 0px !important;
+  
+}
+.modal-footer
+{
+    border-top: 0px !important;
+}

@@ -1,0 +1,539 @@
+// If you want to override variables do it here
+@import "variables";
+
+$enable-ltr: true;
+$enable-rtl: true;
+
+// Import CoreUI for React components library
+@import "@coreui/coreui/scss/coreui";
+
+// Import Chart.js custom tooltips styles
+@import "@coreui/chartjs/scss/coreui-chartjs";
+
+@import "layout";
+@import "example";
+
+// If you want to add custom CSS you can put it here.
+@import "custom";
+
+.text-right
+{
+    text-align:right;
+}
+.container-xxl{
+    width: 90vw !important;
+    max-width: 90% !important;
+}/*  */
+.header
+{
+    background: transparent !important;
+}
+.navLogo
+{
+    padding: 8px;
+}
+.purpBG
+{
+    background-color: $purple;
+}
+.gLogin
+{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+    
+}
+.loginLogo
+{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 40px;
+    img{
+        width: 100%;
+        height: auto;
+    }
+}
+
+
+   
+.btn{
+    border:1px dotted transparent;
+}
+.btn:hover{
+    color: $subtleWhite !important;
+}
+.btn:focus{
+    border:  1px dotted $subtleWhite;
+    color: $subtleWhite;
+    box-shadow: 0 0 0 0rem $purple !important;
+}
+
+
+body{
+    background-color: $purple;
+}
+
+.bg-dark{
+    background-color: $oc-purp !important;
+}
+
+.loginContainer
+{
+    background-color: $white !important;
+}
+.loginGroup{   
+    .card{ 
+        .card-body{
+          
+            p{
+                font-size: 14px !important;
+            }
+        
+        }
+    }
+}
+
+
+.purplePill
+{
+    background-color:rgba(166, 45, 86, 1) !important;
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    margin: 5px;
+
+/* 
+'rgba(43, 21, 60, 1)',   
+        'rgba(82, 29, 77, 1)',   
+        'rgba(125, 35, 86, 1)',   
+        'rgba(166, 45, 86, 1)',   
+        'rgba(202, 64, 79, 1)',   
+        'rgba(230, 92, 65, 1)',   
+        'rgba(249, 127, 44, 1)',   
+        'rgba(255, 166, 0, 1)'   
+*/
+}
+
+.subRownDrop
+{
+    td{
+        border:0px solid #fff !important;
+        padding: 0px;
+    }
+}
+.tableWhite
+{
+    color:$white;
+    thead{
+        tr{
+            th{
+                color:$white !important;
+            }
+        }
+    }
+    tbody{
+        tr{
+            &:hover {
+                cursor: auto;
+            } 
+            td{
+                color:$white !important;
+            }
+        }
+    }
+}
+
+
+.c-header,
+.c-footer
+{
+    background-color:$purple;
+}
+.c-header-text{
+    color: $white;
+}
+.header-nav{
+    .nav-link
+    {
+        color: $white;  
+    }
+}
+.icon-container
+{
+    .card-body{
+        .p-3{
+            min-width: 60px;
+            text-align: center;
+        }
+    }
+}
+.card
+{
+    background-color: $clearwhite;
+
+    .card-header{
+        background-color: $purple !important;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .list-group-item{
+        background-color: transparent !important;
+        border: 1px solid $clearwhite;
+        border-radius: 0px !important;
+    }
+}
+
+.c-app
+{
+    background-color: $purple; 
+    /* background: url('../assets/black-twill.png') */
+}
+.c-vr
+{
+    background-color: $clearwhite;
+}
+.c-avatar
+{
+    width: 30px;
+}
+.bg-purple
+{
+    background-color: $purple;
+}
+hr{
+    background: $subtleWhite !important;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+h1, h2, h3, h4{
+    font-weight: 300;
+    padding-top: 5px;
+}
+.bg-oc-color{
+    h1, h2, h3{
+        color: $white !important;  
+    }
+}
+.c-app{
+    color: #fff !important;
+}
+.chartjs-size-monitor
+{
+    display: flex;
+    align-items: center;
+}
+.icon-container
+{
+    .text-muted{
+        font-size: 14px;
+    }
+    .text-value{
+        font-size: 20px
+    }
+}
+.big-line-graph
+{
+    width: 100%;
+
+
+}
+.map
+{
+    position:relative !important;
+}
+.gm-style .gm-style-iw-c,
+.gm-style .gm-style-iw-d {
+    background-color: $purple;
+    padding: 10px !important;
+    overflow: hidden !important;
+ }
+.text-muted{
+    color: #fff !important;
+}
+.text-live
+{
+    color: #4BB543;
+}
+.live{
+    .liveSiteIcon
+    {
+        position: absolute;
+        right: 0px;
+        top: 0;
+        bottom: 0;
+        background-color: #4BB543;
+        padding: 10px;
+        padding-top: 25px;
+        border-top-right-radius: 3px;
+    }
+}
+.bg-live{
+    background-color: #4BB543 !important;
+}
+.oc-color{
+
+    color: $white !important;
+    .row{
+        .col-12{
+            color: $purple !important;  
+            .card{
+                color: $purple !important;  
+                .card-header.bg-oc-color{
+                    color: $purple !important;  
+                    
+                    h1, h2, h3{
+                        color: $purple !important;  
+                    }
+                }
+            }
+        }
+    }
+    h1, h2, h3{
+        color: $purple !important;  
+    }
+    .card{
+    .bg-oc-color
+    {
+        h1, h2, h3{
+            color: $purple !important;  
+        }
+    }
+    .card-body{
+        color: $white !important;
+        .col{
+            .text-muted{
+                color: $white !important;
+            }
+            .text-value-lg
+            {
+                color: $white !important;
+            }
+        }
+        
+    }
+    
+}
+}
+
+.stageIcon
+{
+    position:absolute;
+    top:10px;
+    right:10px;
+}
+.shortTimeMarker
+{
+    white-space: nowrap;
+    position:relative;
+    overflow: visible;
+  /*   margin-left:-100%; */
+    width: auto;
+   /*  left: -50%; */
+    margin-top:20px; 
+    padding:20px;
+    background-color:#fff;
+    color:$purple;
+}
+.displayBlockBox
+{
+    background-color:$purple;
+    padding:30px 30px 30px 30px;
+    
+}
+
+.FCdisplayBlockbox
+{
+    background-color:$white;
+    color:$purple;
+    padding:30px 30px 30px 30px;
+
+
+    .iconHolder
+    {
+        color:$purple;
+    }
+    .nameHolder
+    {
+        .h2
+        {
+            color:$purple !important;
+        }
+    }
+   
+}
+.avatar {
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+.calendarCol:not(:first-child):not(:last-child)
+{
+    border-left:1px dotted $subtleWhite;
+    border-right:1px dotted $subtleWhite;
+}
+.iconHolder
+{
+    margin-bottom:20px;
+    margin-top:0px;
+}
+
+.whiteText
+{
+    color:$white;
+}
+h1{
+    margin-bottom:20px;
+}
+
+
+.rbc-event
+{
+    height:100%;
+}
+.rbc-toolbar-label
+{
+    font-size:32px;
+    color:#fff;
+}
+.rbc-btn-group
+{
+    button{
+        background-color:$purple !important;
+        color:#fff !important;
+    }
+}
+.rbc-off-range-bg
+{
+    background-color: $purple !important;
+}
+.rbc-date-cell
+{
+    color: $white;
+}
+.rbc-now.rbc-current
+{
+    a{
+        color: $purple !important;
+    }
+    
+}
+.rbc-header
+{
+    color:$white;
+}
+.rbc-event
+{
+    background-color:$purple !important;
+    text-align:center;
+    display:flex;
+    align-content: center;
+    justify-content: center;
+    border:1px solid $clearwhite;
+
+}
+.rbc-event-content
+{
+    text-align:center;
+    font-size:18px;
+    
+    display:flex;
+    align-content: center;
+    justify-content: center;
+    padding-top:10px;
+    padding-bottom:10px;
+}
+
+.rbc-event-allday
+{
+    
+    margin-top:10px;
+}
+
+.card-title
+{
+    color:#fff;
+}
+
+.chartjs-size-monitor
+{
+    color:#fff;
+}
+
+.spinnerActive
+{
+    position: absolute;
+    display:block;
+    visibility:visible;
+    text-align:center;
+    top:30%;
+    left:47.5%;
+}
+
+.spinnerRemove
+{
+    display:none;
+    visibility:none;
+}
+
+
+button,
+input, 
+select,
+.input-group-text,
+.btn-close{
+    background-color: $purple !important;
+    border: 1px dotted $subtleWhite !important;
+    border-radius: 0 !important;
+    color: $white !important;
+}
+.form-control:disabled,
+.inactiveField{
+    border: 1px dotted $lpurple !important;
+    background-color: $lpurple !important;
+}
+.activeField{
+    border: 1px dotted $subtleWhite !important;
+    background-color: $purple !important;
+}
+.form-check-input
+{
+    background-color: $clearwhite !important;
+    border: 1px dotted transparent !important;
+    border-radius: 10px !important;
+
+    &:focus{
+        border-color: transparent !important;
+        box-shadow: 0 0 0 0 transparent;
+    }
+}
+.editVideoHover
+{
+    background-color: $lpurple !important;
+    border:1px dotted $lpurple !important;
+    &:hover{
+        background-color: $purple !important; 
+        border:1px dotted $white !important;
+    }
+}
+
+
+.card{
+    border-radius: 0px;
+}
+
+
+
+/* Toast */
+.toast-header
+{
+    background-color: transparent !important;
+    border: 1px dotted $white !important;
+    color: $purple !important;
+    .btn-close{
+        background-color: transparent !important;
+        color: $white !important;
+    }
+}

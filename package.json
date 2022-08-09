@@ -1,0 +1,27 @@
+{
+  "name": "toplevel",
+  "version": "1.0.0",
+  "description": "DS Server App",
+  "main": "index.js",
+  "scripts": {
+    "grapes": "cd CMSWrap/src/grapes-client-main && npm run dev",
+    "server": "cd ds-server && nodemon index",
+    "client": "cd CMSWrap && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "none"
+  },
+  "keywords": [
+    "none"
+  ],
+  "author": "Eric M Bradshaw",
+  "license": "OMNICOMMANDER",
+  "dependencies": {
+    "concurrently": "^7.1.0",
+    "eslint": "^5.6.0",
+    "keymirror": "^0.1.1",
+    "react-grapesjs": "^0.1.15"
+  }
+}
