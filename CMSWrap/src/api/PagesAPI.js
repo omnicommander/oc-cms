@@ -3,7 +3,7 @@ import axios from 'axios';
 class PagesAPI {
   static async getAllPages() {
     console.log('Called?')
-    return axios.get('http://localhost:5000/pages')
+    return axios.get('http://localhost:5000/api/v1/pages')
       .then(({ data }) => {
         return data
       }, (error) => {
@@ -13,7 +13,7 @@ class PagesAPI {
 
   static async addNewPage(newPage) {
     console.log(newPage)
-    return axios.post('http://localhost:5000/pages/create/', newPage)
+    return axios.post('http://localhost:5000/api/v1/pages', newPage)
         .then((response) => {
           console.log(response);
         }, (error) => {

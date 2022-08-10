@@ -1,82 +1,83 @@
-import Folders from "../models/FolderModel.js";
+import Folder from "../models/FolderModel.js";
  
 export const getAllFolders = async (req, res) => {
 
     try {
-        const pages = await Folders.findAll();
-        res.json(pages);
+        const result = await Folder.findAll();
+        res.status(200).json(result);
     } catch (error) {
         console.log(error);
-        res.json({ message: error.message });
+        res.status(500).json({ message: error.message });
     }  
 }
  
-export const getFoldersByCustomerId = async (req, res) => {
+export const getFolderByCustomerId = async (req, res) => {
     try {
-        const user = await Folders.findAll({
+        const result = await Folder.findOne({
             where: {
                 id: req.params.id
             }
         });
-        res.json(user[0]);
+        res.status(200).json(result);
     } catch (error) {
-        res.json({ message: error.message });
+        res.status(500).json({ message: error.message });
     }  
 }
-export const getFoldersByFolderId = async (req, res) => {
+
+export const getFolder = async (req, res) => {
     try {
-        const Folder = await Folders.findAll({
+        const result = await Folder.findAll({
             where: {
-                customer_id: req.params.id
+                id: req.params.id
             }
         });
-        console.log(res);
-        res.json(Folder[0]);
+        res.status(200).json(result);
     } catch (error) {
-        res.json({ message: error.message });
+        res.status(500).json({ message: error.message });
     }  
 } 
+
 export const createFolder = async (req, res) => {
     console.log(req.body)
-    console.log('=======================')
     try {
-        await Folders.create(req.body);
-        res.json({
-            "message": "Folder Created"
+        await Folder.create(req.body);
+        res.status(200).json({
+            "message": "success"
         });
     } catch (error) {
-        console.log(res.body)
-        console.log('=======================')
-        res.json({ message: error.message });
+        console.log(error.message);
+        res.status(500).json({ message: error.message });
     }  
 }
  
 export const updateFolder = async (req, res) => {
     try {
-        await Folders.update(req.body, {
+        await Folder.update(req.body, {
             where: {
                 id: req.params.id
             }
         });
-        res.json({
-            "message": "Folder Updated"
+        res.status(200).json({
+            "message": "success"
         });
     } catch (error) {
-        res.json({ message: error.message });
+        console.log(error.message);
+        res.status(500).json({ message: error.message });
     }  
 }
  
 export const deleteFolder = async (req, res) => {
     try {
-        await Folders.destroy({
+        await Folder.destroy({
             where: {
                 id: req.params.id
             }
         });
-        res.json({
-            "message": "Folder Deleted"
+        res.status(200).json({
+            "message": "success"
         });
     } catch (error) {
-        res.json({ message: error.message });
+        console.log(error.message);
+        res.status(500).json({ message: error.message });
     }  
 }

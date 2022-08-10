@@ -1,11 +1,8 @@
 import { Sequelize } from "sequelize";
  
 const db = new Sequelize('oc-cms', 'root', '', {
-    host: "localhost",
-   
-    dialect: "mysql"
+    dialect: "sqlite",
+    storage: "/home/noah/repos/github.com/omnicommander/oc-cms/ds-server/dev.db"
 });
-
-
 
 export default db;

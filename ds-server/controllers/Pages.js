@@ -1,80 +1,79 @@
-import Pages from "../models/PageModel.js";
+import Page from "../models/PageModel.js";
  
 export const getAllPages = async (req, res) => {
 
     try {
-        const pages = await Pages.findAll();
-        res.json(pages);
+        const result = await Page.findAll();
+        res.status(200).json(result);
     } catch (error) {
         console.log(error);
-        res.json({ message: error.message });
+        res.status(500).json({ message: error.message });
     }  
 }
  
-export const getPagesByCustomerId = async (req, res) => {
+export const getPageByCustomerId = async (req, res) => {
     try {
-        const user = await Pages.findAll({
-            where: {
-                id: req.params.id
-            }
-        });
-        res.json(user[0]);
-    } catch (error) {
-        res.json({ message: error.message });
-    }  
-}
-export const getPagesByPageId = async (req, res) => {
-    try {
-        const Page = await Pages.findAll({
+        const result = await Page.findOne({
             where: {
                 customer_id: req.params.id
             }
         });
-        console.log(res);
-        res.json(Page[0]);
+        res.status(200).json(result);
     } catch (error) {
-        res.json({ message: error.message });
+        res.status(500).json({ message: error.message });
+    }  
+}
+export const getPage = async (req, res) => {
+    try {
+        const result = await Page.findOne({
+            where: {
+                id: req.params.id
+            }
+        });
+        console.log(res);
+        res.status(200).json(result);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
     }  
 } 
 export const createPage = async (req, res) => {
-    console.log(req.body)
-    console.log('----------------')
     try {
-        await Pages.create(req.body);
-        res.json({
-            "message": "Page Created"
+        await Page.create(req.body);
+        res.status(200).json({
+            "message": "success"
         });
     } catch (error) {
-        res.json({ message: error.message });
+        console.log(error.message);
+        res.status(500).json({ message: error.message });
     }  
 }
  
 export const updatePage = async (req, res) => {
     try {
-        await Pages.update(req.body, {
+        await Page.update(req.body, {
             where: {
                 id: req.params.id
             }
         });
-        res.json({
-            "message": "Page Updated"
+        res.status(200).json({
+            "message": "success"
         });
     } catch (error) {
-        res.json({ message: error.message });
+        res.status(500).json({ message: error.message });
     }  
 }
  
 export const deletePage = async (req, res) => {
     try {
-        await Pages.destroy({
+        await Page.destroy({
             where: {
                 id: req.params.id
             }
         });
-        res.json({
-            "message": "Page Deleted"
+        res.status(200).json({
+            "message": "success"
         });
     } catch (error) {
-        res.json({ message: error.message });
+        res.status(500).json({ message: error.message });
     }  
 }

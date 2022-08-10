@@ -2,14 +2,18 @@ import { Sequelize } from "sequelize";
 import db from "../config/database.js";
  
 const { DataTypes } = Sequelize;
-const Folders = db.define('page-folders',{
-
-    foldername:{
-        type: DataTypes.STRING
-    }
+const Folder = db.define('Folder', {
+    id: {
+        type: DataTypes.INTEGER, 
+        autoIncrement: true, 
+        primaryKey: true, 
+    }, 
+    foldername: { 
+        type: DataTypes.STRING, 
+    }, 
 },{
-    freezeTableName: true,
-    timestamps: false
+    freezeTableName: true, 
+    timestamps: false, 
 });
  
-export default Folders;
+export default Folder;

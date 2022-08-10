@@ -51,15 +51,15 @@ function CMS (props) {
         ],
       },
       storageManager: {
-        type: 'local', // Storage type. Available: local | remote
-        autosave: true, // Store data automatically
-        autoload: true, // Autoload stored data on init
-        stepsBeforeSave: 1, // If autosave is enabled, indicates how many changes are necessary before the store method is triggered
-        // ...
-        // Default storage options
-        options: {
-          local: { key: `gjsProject-${page_id}` }
-        }
+        type: 'remote',
+          options: {
+              remote: {
+                urlLoad: `http://localhost:5000/grapes/v1/page/${page_id}`,
+                urlStore: `http://localhost:5000/grapes/v1/page/${page_id}`,
+                onStore: data => ({ id: page_id, data }),
+                onLoad: result => result.data,
+              }
+          }
       },
       // Model definition
       model: {
