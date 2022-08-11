@@ -2,6 +2,7 @@ import React, {Suspense, useState, useEffect, useCallback} from 'react'
 import { HashRouter, Route, Routes} from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { Provider } from 'react-redux'
+import PropTypes from "prop-types";
 import * as thePagesActions from './actions/pagesActions';
 import * as theFolderActions from './actions/folderActions';
 import store from './store/store'

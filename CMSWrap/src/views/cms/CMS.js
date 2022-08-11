@@ -12,7 +12,7 @@ import {CButton } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import {cilSave, cilFile} from '@coreui/icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { thin } from '@fortawesome/fontawesome-svg-core/import.macro' // <-- import st
+import { thin } from '@fortawesome/fontawesome-svg-core/import.macro'
 
 
 function CMS (props) {
@@ -22,14 +22,11 @@ function CMS (props) {
 
   const [page_id, setPageId] = useState(location.state.id);
   useEffect(() =>{
-    
     localStorage.clear();
     setPageId(location.state.id);
-    
     const editor = grapesjs.init({
       container: "#gjs",
       allowScripts: 1,
-      
       plugins: [exportPlugin, gjsPresetWebpage, heroImage, heroImage2, headerArea, callsToAction],
       pluginsOpts: {
         gjsPresetWebpage,
@@ -171,6 +168,7 @@ function CMS (props) {
     
     return (
       <div className="App">
+
         <div id="gjs">
 
         </div>

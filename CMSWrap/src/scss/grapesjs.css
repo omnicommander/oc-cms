@@ -1642,10 +1642,16 @@ span.CodeMirror-selectedtext{
     overflow:auto;
     box-shadow:0 0 5px #1a0d28
 }
+.gjs-pn-views .gjs-pn-buttons .gjs-pn-btn
+{
+    
+}
 .gjs-pn-buttons{
     align-items:center;
     display:flex;
+    flex-direction: row-reverse;
     justify-content:space-between
+
 }
 .gjs-pn-btn{
     box-sizing:border-box;

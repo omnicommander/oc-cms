@@ -1,17 +1,80 @@
+.sidebar-nav
+{
+  .nav-item{
+    .nav-link{
+      padding: 4px;
+    }
+  }
+}
+.accordion-button:not(.collapsed)
+{
+  box-shadow: none !important;
+}
 /* Side Nav UI Items */
+.accordion-button{
+  padding: 10px;
+  &:after{
+    position:relative;
+    font-family: "Font Awesome 5 Thin"; content: "\f099";
+    background-image:none !important;
+    content: "╲╱";
+    font-size: 6px;
+    width: 10px;
+   
+    height:8px;
+
+  }
+}
+.accordion-collpase
+{
+  &:focus,
+  &:active{
+    
+  }
+}
+.accordion-item,
+.accordion-button:focus
+{
+  background-color: transparent;
+  border: 1px dotted $clearwhite !important;
+  border-top-left-radius: 0px !important;
+  border-top-right-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+  box-shadow: none;
+  &:after{
+    background-image:none !important;
+  }
+  .accordion-body
+  {
+    background-color: $purple;
+    
+  }
+}
+
 .gjs-editor-cont{
   height: 100vh !important;
 }
 .navPagesControl
 {
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 0px;
+  padding-bottom: 0px;
   font-weight: bold;
   color: $subtleClearWhite;
+  background-color: $dlpurple;
+  border: 1px dotted $clearwhite;
+  .navPagesTitle
+  {
+    font-size: 12px;
+    font-weight: normal;
+  }
 }
-
+.accordion-body
+{
+  padding: 5px !important;
+}
 .leftNavPopOut
 {
   z-index: 999;
@@ -28,7 +91,9 @@
 }
 
 .thePagesNavList{
-  padding-left: 10px !important;
+  padding-left: 5px !important;
+  padding-top: 10px;
+  padding-bottom: 10px;
   .newPageButton
   {
     text-align: left !important;
@@ -38,15 +103,37 @@
 .folderList
 {
 
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 0px;
+  margin-bottom: 0px;
   padding-left: 10px;
   padding-right: 10px;
+  /* border-bottom: 1px dotted $clearwhite; */
+  .innerFolder{
+    .folderCard
+    {
+      background-color: rgba(255,255,255,.02);
+      .folderBody
+      {
+        padding: 10px 4px 10px 4px !important;
+
+        .folderListItem
+        {
+          padding: 0 0 0 0 !important;
+        }
+      }
+    }
+  }
+
+}
+.folderBtn
+{
+  border: 0px dotted #fff !important;
+  padding: 0 0 0 0 !important;
 }
 .pagesList
 {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 0px;
+  margin-bottom: 0px;
   padding-left: 10px;
   padding-right: 10px;
 }
@@ -102,8 +189,9 @@
 
 .modal-content
 {
-  background-color: $dlpurple !important;
-  backdrop-filter: blur(4px);
+  background-color: $purple !important;
+  color: $white;
+  backdrop-filter: blur(1px);
 
   .btn-close{
     background-color: transparent !important;

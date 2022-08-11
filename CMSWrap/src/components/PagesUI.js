@@ -16,18 +16,18 @@ import {
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import {cilPlus, cilCog, cilFile, cilFolder} from '@coreui/icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { thin } from '@fortawesome/fontawesome-svg-core/import.macro'
+
 
 export default function PagesUI (props, {id, name}) {
+    console.log(props)
     const state = useSelector((state) => state);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
     
-    const viewPage = useCallback((id) => {
-        navigate(`/cms/${id}`, {
-            state: { id: id}
-        });
-    });
+
 
     const redirectToClients =  useCallback( (theClient, id) => {
         /* dispatch(campaignActions.getCampaignsbyCustomerID(id)) */
@@ -36,36 +36,48 @@ export default function PagesUI (props, {id, name}) {
         });
       });
   
-    function editPage(id)
-    {
-        console.log('Edit Page: ', id )
-    }
 
-    
     return (
     <>
-       
-        <ul className = "thePagesNavList d-grid gap-2">
-           {
-            state.pagesInfo.map(p => (
-                
-                    <li key = {p.id}  id={p.id} className = "pagesList dragListItem d-flex justify-content-between" > 
+        {
+        state.pagesInfo.map(p => (
+            <>
+            {p.folder_id
+                ? 
+                    <></>
+                : 
+                <li key = {p.id}  id={p.id} className = "pagesList dragListItem d-flex justify-content-between" > 
                     {name}
-                    
-                        <CButton  onClick={() => viewPage(p.id)} className="newPageButton text-left iconOnly">
-                            <div className = "pageTitle"><CIcon icon={cilFile} size="lg"/> {p.page_name}</div>
-                        </CButton>
-     
-                        <CButton onClick={() => editPage(p.id)} className="newPageButton text-left iconOnly">
-                            <div className = "pageButtonIconCog">  
-                                <CIcon icon={cilCog} size="lg"/>
-                            </div>
-                        </CButton>
-                    </li>
-            ))
-           }
-        </ul>   
+                  
+                    <CButton  onClick={() => props.viewPage(p.id)} className="newPageButton text-left iconOnly">
+                        <div className = "pageTitle">
+                        {console.log(p.id)}
+                            <FontAwesomeIcon icon={thin('file') } size=""/> {p.page_name}
+                        </div>
+                        {console.log(p.id)}
+                    </CButton>
+                    <CButton onClick={() => props.toggleEdit(p.id, !props.toggleState)} className="newPageButton text-left iconOnly">
+                        <div className = "pageButtonIconCog">  
+                            <FontAwesomeIcon icon={thin('cog') } size=""/>
+                        </div>
+                    </CButton>
+                </li>
+            }
+            </>
+        ))
+        }
     </>
     );  
   }
-
+PagesUI.propTypes = {
+    viewPage: [],
+    editPage: [],
+    toggleEdit: [],
+    toggleState: []
+}
+PagesUI.defaultProps = {
+    viewPage: [],
+    editPage: [],
+    toggleEdit: [],
+    toggleState: []
+}
