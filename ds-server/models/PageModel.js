@@ -2,27 +2,26 @@ import { Sequelize } from "sequelize";
 import db from "../config/database.js";
  
 const { DataTypes } = Sequelize;
-const Page = db.define('Page',{
-    id: {
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
-        primaryKey: true
+const Pages = db.define('websitepages',{
+    customer_id:{
+        type: DataTypes.INTEGER
     },
-    name: {
-        type: DataTypes.STRING,
+    folder_id:{
+        type: DataTypes.INTEGER
     },
     json: {
         type: DataTypes.STRING,
     },
-    customer_id: {
-        type: DataTypes.INTEGER,
+    content:
+    {
+        type: DataTypes.STRING
     },
-    folder_id: {
-        type: DataTypes.INTEGER,
-    },
+    page_name:{
+        type: DataTypes.STRING
+    }
 },{
     freezeTableName: true,
-    timestamps: false,
+    timestamps: false
 });
  
-export default Page;
+export default Pages;'n'

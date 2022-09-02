@@ -44,14 +44,11 @@ export default function PagesUI (props, {id, name}) {
             <>
             {p.folder_id
                 ? 
-                    <></>
-                : 
                 <li key = {p.id}  id={p.id} className = "pagesList dragListItem d-flex justify-content-between" > 
                     {name}
-                  
-                    <CButton  onClick={() => props.viewPage(p.id)} className="newPageButton text-left iconOnly">
+                
+                    <CButton  onClick={() => props.viewPage(p)} className="newPageButton text-left iconOnly">
                         <div className = "pageTitle">
-                        {console.log(p.id)}
                             <FontAwesomeIcon icon={thin('file') } size=""/> {p.page_name}
                         </div>
                         {console.log(p.id)}
@@ -62,6 +59,9 @@ export default function PagesUI (props, {id, name}) {
                         </div>
                     </CButton>
                 </li>
+                    
+                : 
+                <></>
             }
             </>
         ))

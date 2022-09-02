@@ -24,7 +24,10 @@ import FoldersUI from './FoldersUI'
 import PagesUI from './PagesUI'
 import PageDetailsModal from './AppComponents.js/PageDetailsModal'
 
+
+
 const AppSidebar = (props) => {
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const state = useSelector((state) => state);
@@ -38,9 +41,10 @@ const AppSidebar = (props) => {
     folder_id: 0,
     content: ''
   }
-  const viewPage = useCallback((id) => {
-    navigate(`/cms/${id}`, {
-        state: { id: id}
+  const viewPage = useCallback((page) => {
+    console.log(page.id, ' ----------------')
+    navigate(`/cms/${page.id}`, {
+        state: { page: page, id: page.id}
     });
   });
 
@@ -108,21 +112,17 @@ const AppSidebar = (props) => {
                 
                   {/* <AppSidebarNav items={navigation} /> */}
                   <ul className = "thePagesNavList d-grid gap-2">
-                  <FoldersUI folders= {state.foldersInfo} viewPage={viewPage}/>
+                  <FoldersUI folders= {state.foldersInfo} viewPage={viewPage} toggleEdit = {togglePageModal} toggleState = {pageModal}/>
                   <PagesUI pages = {state.pagesInfo} viewPage={viewPage} editPage={editPage} toggleEdit = {togglePageModal} toggleState = {pageModal} />
                   </ul>
               </SimpleBar>
           </CAccordionBody>
         </CAccordionItem>
+       
         <CAccordionItem itemKey={2}>
-          <CAccordionHeader>DESIGN</CAccordionHeader>
-          <CAccordionBody>
-          </CAccordionBody>
-        </CAccordionItem>
-        <CAccordionItem itemKey={3}>
           <CAccordionHeader>SETTINGS</CAccordionHeader>
           <CAccordionBody>
-          
+           
           </CAccordionBody>
         </CAccordionItem>
       </CAccordion>

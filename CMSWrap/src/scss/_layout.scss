@@ -13,6 +13,7 @@
 /* Side Nav UI Items */
 .accordion-button{
   padding: 10px;
+  background-color: $oc-purple;
   &:after{
     position:relative;
     font-family: "Font Awesome 5 Thin"; content: "\f099";
@@ -35,8 +36,8 @@
 .accordion-item,
 .accordion-button:focus
 {
-  background-color: transparent;
-  border: 1px dotted $clearwhite !important;
+  background-color: $purple !important;
+  border: 0px solid $clearwhite !important;
   border-top-left-radius: 0px !important;
   border-top-right-radius: 0px !important;
   border-bottom-left-radius: 0px !important;

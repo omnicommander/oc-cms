@@ -8,11 +8,10 @@ import {blockCode} from './blocks/tier4Template_1';
 import {heroImage_1} from './blocks/heroImage1/heroImage_1';
 import {heroImage_2} from './blocks/heroImage2/heroImage_2';
 import {ctas} from './blocks/cta1/callsToAction';
-import {CButton } from '@coreui/react'
-import CIcon from '@coreui/icons-react'
-import {cilSave, cilFile} from '@coreui/icons'
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { thin } from '@fortawesome/fontawesome-svg-core/import.macro'
+
 
 
 function CMS (props) {
@@ -21,12 +20,16 @@ function CMS (props) {
   const location = useLocation();
 
   const [page_id, setPageId] = useState(location.state.id);
+  const [pageData, setPageData] = useState(location.page)
+
   useEffect(() =>{
+  console.log(location.state.id)
     localStorage.clear();
     setPageId(location.state.id);
     const editor = grapesjs.init({
       container: "#gjs",
       allowScripts: 1,
+
       plugins: [exportPlugin, gjsPresetWebpage, heroImage, heroImage2, headerArea, callsToAction],
       pluginsOpts: {
         gjsPresetWebpage,
@@ -35,7 +38,6 @@ function CMS (props) {
         headerArea,
         callsToAction,
         exportPlugin
-
       },
       canvas: {
         styles: [
@@ -48,15 +50,16 @@ function CMS (props) {
         ],
       },
       storageManager: {
+        autosave: true,
         type: 'remote',
-          options: {
-              remote: {
-                urlLoad: `http://localhost:5000/grapes/v1/page/${page_id}`,
-                urlStore: `http://localhost:5000/grapes/v1/page/${page_id}`,
-                onStore: data => ({ id: page_id, data }),
-                onLoad: result => result.data,
-              }
-          }
+        options: {
+            remote: {
+              urlLoad: `http://localhost:5000/grapes/v1/page/${page_id}`,
+              urlStore: `http://localhost:5000/grapes/v1/page/${page_id}`,
+              onStore: data => ({ id: page_id, data }),
+              onLoad: result => console.log(result),
+            }
+        }
       },
       // Model definition
       model: {
@@ -80,7 +83,8 @@ function CMS (props) {
   
       
     });
-    
+    editor.on('storage:start', obj => console.log('Storing ', obj))
+    editor.on('storage:load', obj => console.log('Loaded ', obj))
     // Add the button
     editor.Panels.addButton('options', [{ 
       id: 'save-db', 
@@ -112,7 +116,6 @@ function CMS (props) {
         order: -1, //===>Adjust accordingly
         open: false
       }
-
     });
     
     function heroImage(editor){
@@ -160,8 +163,7 @@ function CMS (props) {
     function getPageState()
     {
       /* const theData = editor.loadProjectData(); */
-      console.log(editor.getHtml())
-      console.log(localStorage)
+
 /*       console.log(theData); */
 /*       console.log(localStorage) */
     }

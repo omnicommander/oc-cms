@@ -1,6 +1,4 @@
 import express from "express";
-
-
 import { 
     getAllFolders,
     getFolder,
@@ -17,7 +15,6 @@ import {
 } from "../controllers/Pages.js"; 
 
 const router = express.Router();
-
 router.route('/folders')
     .get(getAllFolders)
     .post(createFolder);
@@ -29,6 +26,7 @@ router.route('/folders/:id')
 router.route('/pages')
     .get(getAllPages)
     .post(createPage);
+    
 router.route('/pages/:id')
     .get(getPage)
     .put(updatePage)

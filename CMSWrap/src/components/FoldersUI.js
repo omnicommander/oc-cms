@@ -30,55 +30,53 @@ export default function FoldersUI (props, {id, name}) {
     {
         console.log('Edit Folder: ', id )
     }
-
-    
     return (
     <> 
-        
            {
             state.foldersInfo.map(f => (
                 <>
                 <li key = {f.id}  id={f.id} className = "folderList" > 
-                <div className="d-flex justify-content-between">
-                    <CButton className="folderBtn" onClick={() => setFolderState(!folderState)}>
-                        {name} <div className = "pageTitle"><FontAwesomeIcon icon={thin('folder') } size=""/> {f.foldername}</div>
-                    </CButton>
-                    <CButton onClick={() => editFolder(f.id)} className="newPageButton text-left iconOnly">
-                        <div className = "pageButtonIconCog">  
-                            <FontAwesomeIcon icon={thin('cog') } size=""/>
-                        </div>
-                    </CButton>
-                </div>
-                <CCollapse className="innerFolder" visible={folderState}>
-                <CCard className="folderCard">
-                    <CCardBody className = "folderBody">
-                    <ul className = "thePagesNavList d-grid gap-2">
-                    {state.pagesInfo.map(p => (
-                        <>
-                        
-                        <li key = {p.id}  id={p.id} className = "pagesList folderListItem dragListItem d-flex justify-content-between" > 
-                            {name}
-                            <CButton  onClick={() => props.viewPage(p.id)} className="newPageButton text-left iconOnly">
-                                <div className = "pageTitle">
-                                {console.log(p)}
-                                    <FontAwesomeIcon icon={thin('file') } size=""/> {p.page_name}
-                                </div>
-                            </CButton>
-                            <CButton onClick={() => props.editPage(p.id)} className="newPageButton text-left iconOnly">
-                                <div className = "pageButtonIconCog">  
-                                    <FontAwesomeIcon icon={thin('cog') } size=""/>
-                                </div>
-                            </CButton>
-                        </li>
-
-               
+                    <div className="d-flex justify-content-between">
+                        <CButton className="folderBtn" onClick={() => setFolderState(!folderState)}>
+                            {name} <div className = "pageTitle"><FontAwesomeIcon icon={thin('folder') } size=""/> {f.foldername}</div>
+                        </CButton>
+                        <CButton onClick={() => editFolder(f.id)} className="newPageButton text-left iconOnly">
+                            <div className = "pageButtonIconCog">  
+                                <FontAwesomeIcon icon={thin('cog') } size=""/>
+                            </div>
+                        </CButton>
+                    </div>
+                    <CCollapse className="innerFolder" visible={folderState}>
+                    <CCard className="folderCard">
+                        <CCardBody className = "folderBody">
+                        <ul className = "thePagesNavList d-grid gap-2">
+                        {state.pagesInfo.map(p => (
+                            <>
+                            {p.folder_id
+                            ? 
+                            <></>   
+                            : 
+                            <li key = {p.id}  id={p.id} className = "pagesList dragListItem d-flex justify-content-between" > 
+                                {name}
+                                <CButton  onClick={() => props.viewPage(p.id)} className="newPageButton text-left iconOnly">
+                                    <div className = "pageTitle">
+                                        <FontAwesomeIcon icon={thin('file') } size=""/> {p.page_name}
+                                    </div>
+                                </CButton>
+                                <CButton onClick={() => props.toggleEdit(p.id, !props.toggleState)} className="newPageButton text-left iconOnly">
+                                    <div className = "pageButtonIconCog">  
+                                        <FontAwesomeIcon icon={thin('cog') } size=""/>
+                                    </div>
+                                </CButton>
+                            </li>
+                        }
                         </>
-                        
-                    ))}
-                    </ul>
-                    </CCardBody>
-                </CCard>
-                </CCollapse>
+                            
+                        ))}
+                        </ul>
+                        </CCardBody>
+                    </CCard>
+                    </CCollapse>
                 </li>
                 </>
                
@@ -89,11 +87,17 @@ export default function FoldersUI (props, {id, name}) {
     );  
   }
 
+
 FoldersUI.propTypes = {
     viewPage: [],
-    editPage: []
+    editPage: [],
+    toggleEdit: [],
+    toggleState: []
+
 }
 FoldersUI.defaultProps = {
     viewPage: [],
-    editPage: []
+    editPage: [],
+    toggleEdit: [],
+    toggleState: []
 }
